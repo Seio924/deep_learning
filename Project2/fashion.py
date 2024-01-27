@@ -13,8 +13,8 @@ trainX = trainX / 255.0
 testX = testX / 255.0
 
 
-trainX.reshape((trainX.shape[0], 28, 28, 1))
-testX.reshape((testX.shape[0], 28, 28, 1))
+trainX = trainX.reshape((trainX.shape[0], 28, 28, 1))
+testX = testX.reshape((testX.shape[0], 28, 28, 1))
 
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
@@ -39,3 +39,6 @@ model.summary()
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 model.fit(trainX, trainY, epochs=5)
+
+score = model.evaluate(testX,testY)
+print(score)
