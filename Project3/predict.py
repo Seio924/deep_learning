@@ -32,6 +32,8 @@ music = []
 for i in range(200):
 
     predict_data = Pmodel.predict(first_input)
+
+    #가장 높은 확률을 가진 것으로 예측값 생성
     predict_data = np.argmax(predict_data[0])
     
     #랜덤으로 예측값 생성 (반복 때문에)
